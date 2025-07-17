@@ -1,0 +1,21 @@
+name: Checkmarx One Scan
+on:
+  push:
+    branches:
+      - main
+      - master
+      - dev
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkmarx One CLI Action
+        uses: checkmarx/ast-github-action@main #Github Action version
+        with:
+          project_name: carina_github_project
+          cx_tenant: cx_seg
+          base_uri: https://eu.ast.checkmarx.net
+          cx_client_id: carina_github
+          cx_client_secret: 1EJwxQ6F4Tz1XIPinZmt0awmjc8BVfQO
